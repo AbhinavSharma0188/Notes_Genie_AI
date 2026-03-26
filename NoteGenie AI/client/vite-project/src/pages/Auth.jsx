@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion } from "motion/react"
+import { motion, transform } from "motion/react"
 import { FcGoogle } from "react-icons/fc";
 
 function Auth() {
@@ -36,12 +36,36 @@ function Auth() {
     </motion.div>
     
     {/* Right content */}
-    <motion.div></motion.div>
+    <motion.div className='grid grid-cols-1 sm:grid-cols-2 gap-8'>
+        <Feature icon="🎁" title="50 Free credits" description="Start with 50 credits to generate notes without paying."/>
+        <Feature icon="📘" title="Exam Notes" description="High-yield, exam-oriented notes for quick revision."/>
+        <Feature icon="📝" title="Project Notes" description="Detailed project notes with structure, content and formatting."/>
+        <Feature icon="📊" title="Charts & Graphs" description="Generate clean, professional charts and graphs for your notes."/>
+        <Feature icon="🖨️" title="PDF Download" description="Download notes as clean, printable PDFs for offline study."/>
+        
+    </motion.div>
    </main>
    
    
    </div>
   )
+}
+function Feature({icon,title,description}){
+    return(
+    <motion.div whileHover={{y:-12,rotateX:8,rotateY:-8,scale:1.07}}
+    transition={{type:"spring",stiffness:200,damping:18}}
+     className='relative rounded-2xl p-6 
+    bg-gradient-to-br from-black/90 via-black/80 to-black/90
+    backdrop-blur-2xl border border-white/10
+    shadow-[0_30px_80px_rgba(0,0,0,0.7)]
+    text-white'
+    style={{transformStyle:"preserve-3d"}}>
+        
+        <div className='relative z-10 ' style={{transform:"translateZ(30px)"}}><div className='text-4xl mb-3'>{icon}</div>
+        <h3 className='text-lg font-bold mb-2'>{title}</h3>
+        <p className='text-gray-300 text-sm leading-relaxed'>{description}</p></div>
+    </motion.div>
+    )
 }
 
 export default Auth
