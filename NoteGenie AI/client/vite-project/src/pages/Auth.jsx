@@ -8,7 +8,10 @@ function Auth() {
     const handleGoogleAuth=async()=>{
         try {
             const response=await signInWithPopup(auth,provider);
-            console.log(response)
+            const User=response.user;
+            const name=response.displayName;
+            const email=response.email;
+           
             
         } catch (error) {
             console.error("Google sign-in error:", error.message)
