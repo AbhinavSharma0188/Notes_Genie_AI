@@ -1,4 +1,5 @@
 import UserModel from "../models/user.model.js";
+import { getToken } from "../utils/token.js";
 
 export const googleAuth=async(req,res)=>{
     try {
@@ -10,8 +11,9 @@ export const googleAuth=async(req,res)=>{
                 email,
                
             })
+            await user.save();
         }
-         let token=getToken(user._id)
+         let token=await getToken(user._id)
          res.cookie("token",token,{
             httpOnly:true,
             secure:false,
