@@ -3,6 +3,6 @@ import isAuth from "../middleware/isAuth.js";
 import { getCurrentUser } from "../controllers/user.controller.js";
 const userRouter=express.Router();
 
-userRouter.get("/currentuser",isAuth,getCurrentUser);
+userRouter.get("/currentuser", getCurrentUser);
 
 export default userRouter;

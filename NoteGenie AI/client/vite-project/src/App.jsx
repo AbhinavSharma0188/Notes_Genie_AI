@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import Home from './pages/Home'
 import Auth from './pages/Auth'
 import { useEffect } from 'react';
@@ -17,8 +17,8 @@ function App() {
   return (<>
   <Routes>
       <Route path='/' element={userData?<Home/>:<Auth/>}/>
-      <Route path='auth' element={userData?<Home/>:<Auth/>}/>
-      
+      <Route path='/auth' element={userData ? <Navigate to="/" replace /> : <Auth/>}/>
+      <Route path='*' element={<Navigate to={userData ? "/" : "/auth"} replace />}/>
     </Routes>
     </>
 
