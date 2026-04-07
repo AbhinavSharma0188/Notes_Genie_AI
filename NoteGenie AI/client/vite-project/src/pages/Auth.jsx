@@ -19,7 +19,7 @@ function Auth() {
             },{
                 withCredentials:true
             })
-            console.log(result.data);
+            
            
             
         } catch (error) {
